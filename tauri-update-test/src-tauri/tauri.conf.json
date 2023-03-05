@@ -1,0 +1,57 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist",
+    "withGlobalTauri": false
+  },
+  "package": {
+    "productName": "tauri-update-test",
+    "version": "1.0.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+        "open": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "com.tauri.dev",
+      "shortDescription": "A better way to relax and listen to lo-fi live streams.",
+      "longDescription": "Mood-Fi is the best place to relax and listen to a lo-fi live stream. It's a free software app with 30+ lo-fi live streams between 8 different lo-fi types. Take a break, relax and be mood, be Mood-Fi.",
+      "resources": [],
+      "targets": "all"
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": true,
+      "endpoints": [
+        "https://gist.github.com/KaykyDeSouzaDias/e8efe2cbe1154f21438c43cae0c68fde/raw"
+      ],
+      "dialog": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDMzMjc5NTA1MThBOUI2MDQKUldRRXRxa1lCWlVuTThLTmRXSkQrN0drelpCbXFEdGUyWnZ5blowTTduQ0VGc2doQVZxL2E0RHYK"
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "tauri-update-test - 1.0.0",
+        "width": 800,
+        "height": 600
+      }
+    ]
+  }
+}
