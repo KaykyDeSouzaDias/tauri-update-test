@@ -28,7 +28,7 @@ function App() {
         </a>
       </div>
 
-      <p>TA NA VERSÃO 1.0.0</p>
+      <p>TA NA VERSÃO 1.1.0</p>
 
       <div className="row">
         <form
