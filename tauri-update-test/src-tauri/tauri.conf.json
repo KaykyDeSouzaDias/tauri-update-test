@@ -27,7 +27,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.update.test",
       "shortDescription": "A better way to relax and listen to lo-fi live streams.",
       "longDescription": "Mood-Fi is the best place to relax and listen to a lo-fi live stream. It's a free software app with 30+ lo-fi live streams between 8 different lo-fi types. Take a break, relax and be mood, be Mood-Fi.",
       "resources": [],
