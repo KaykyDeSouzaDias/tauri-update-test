@@ -8,7 +8,7 @@
   },
   "package": {
     "productName": "tauri-update-test",
-    "version": "2.1.0"
+    "version": "2.1.2"
   },
   "tauri": {
     "allowlist": {
@@ -48,7 +48,7 @@
       {
         "fullscreen": false,
         "resizable": true,
-        "title": "tauri-update-test - 2.1.0",
+        "title": "tauri-update-test - 2.1.2",
         "width": 800,
         "height": 600
       }
