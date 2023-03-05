@@ -1,0 +1,48 @@
+name: Deploy PROD
+
+on:
+  workflow_dispatch:
+    
+    
+jobs:
+  deploy:
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [macos-latest, ubuntu-20.04, windows-latest]
+
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+      - name: install dependencies (ubuntu only)
+        if: matrix.platform == 'ubuntu-20.04'
+        run: |
+          sudo apt-get update
+          cd mood-fi
+          sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf
+      - name: install app dependencies and build it
+        id: Release-Pipeline
+        run: |
+          cd mood-fi
+          yarn && yarn build
+
+      - uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
+          TAURI_KEY_PASSWORD: ${{ secrets.TAURI_KEY_PASSWORD }}
+        with:
+          tagName: v${{ vars.RELEASE_VERSION }}
+          releaseName: 'Mood-Fi ${{ vars.RELEASE_VERSION }}'
+          releaseBody: '${{ vars.RELEASE_BODY }}'
+          releaseDraft: false
+          prerelease: false
